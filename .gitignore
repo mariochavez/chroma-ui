@@ -29,3 +29,6 @@
 
 .rubocop.yml
 .solargraph.yml
+
+/config/database.yml
+tailwind.config.js

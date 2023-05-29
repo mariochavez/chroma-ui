@@ -1,2 +1,2 @@
-web: bin/rails server -p 4040
+web: bin/rails server -p 4040 --binding=0.0.0.0
 css: bin/rails tailwindcss:watch

@@ -30,4 +30,46 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app_name: Chroma UI
+  disconnect: Disconnect
+  connect:
+    host: Database host address
+    error: Host is invalid or not available.
+    submit: Connect
+    placeholder:
+      host: "https://localhost:8000"
+    length:
+      host: 40
+
+  home:
+    index:
+      title: Manage your Vector Database with confidence
+      description: Connect privately to your Vector Database. Query your vectors or manage indexes and embeddings easily.
+      call_to_action: Enter your database URL to get started.
+      on_github: View on Github
+
+  application:
+    server:
+      version: Version %{version}
+
+  menu:
+    collections: Collections
+    icons:
+      collections: "M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
+
+  resources:
+    name: Resources
+    items:
+      chroma:
+        name: Chroma Vector database
+        url: https://trychroma.com
+        icon: C
+      chroma-client:
+        name: Ruby Chroma client
+        url: https://github.com/mariochavez/chroma-db
+        icon: R
+      chroma-ui:
+        name: Chroma UI
+        url: https://github.com/mariochavez/chroma-ui
+        icon: U
+
