@@ -12,7 +12,7 @@ module Application
     def template
       div(class: "relative z-50 lg:hidden", role: "dialog", aria_modal: "true") do
         div(
-          class: "hidden fixed inset-0 bg-gray-900/80 backdrop",
+          class: "hidden fixed inset-0 bg-gray-900/80 sidebar-backdrop",
           data_controller: "backdrop",
           data_backdrop_target: "backdrop",
           data_transition_enter_active: "transition-opacity ease-linear duration-200",

@@ -21,7 +21,7 @@ module Application
         end
         li(class: "-mx-6 mt-auto") do
           div(class: "px-6") do
-            button_to(t("disconnect"), disconnect_path, method: :delete, class: "button w-full")
+            button_to(t("disconnect"), disconnect_path, method: :delete, class: "button w-full", data: {turbo_confirm: t("confirmation.disconnect")})
           end
           render Application::Server.new(server: @server, version: @version)
         end

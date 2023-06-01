@@ -1,0 +1,7 @@
+<%= turbo_frame_tag :index do %>
+  <% if @collections.any? %>
+    <%= render Collections::List.new(collections: @collections) %>
+  <% else %>
+    <%= render Collections::IndexEmpty.new %>
+  <% end %>
+<% end %>

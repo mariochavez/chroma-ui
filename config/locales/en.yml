@@ -73,3 +73,51 @@ en:
         url: https://github.com/mariochavez/chroma-ui
         icon: U
 
+  confirmation:
+    disconnect: Are you sure you want to disconnect?
+    delete_collection: Are you sure you want to delete collection %{name}? This process is not reversible.
+
+  collections:
+    index:
+      title: Current collections
+      empty:
+        title: Looks like you don't have any collections.
+        description: A collection is a primitive of embeddings, documents, and metadata.
+      actions:
+        add: Add a collection
+        create: Create a collection
+        learn_more: Learn more
+    new:
+      title: Create a collection
+      description: Collection name needs to be unique.
+    show:
+      embeddings_count: Embeddings
+      distance_method: Distance method
+      metadata: Metadata
+      actions:
+        delete: Delete
+        modify: Modify
+    edit:
+      title: Modify collection %{name}
+      actions:
+        cancel: Cancel
+        submit: Update collection
+      help:
+        metadata: Enter metadata as a valid JSON object.
+
+  activemodel:
+    attributes:
+      collection:
+        name: Collection name
+        distance_method: Distance method
+        metadata: Metadata
+        json_metadata: Metadata
+    errors:
+      models:
+        collection:
+          attributes:
+            name:
+              blank: "collection name is required"
+              invalid: "not a valid collection name format"
+            json_metadata:
+              invalid: "not a valid JSON format"
