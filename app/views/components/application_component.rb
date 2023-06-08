@@ -18,10 +18,12 @@ class ApplicationComponent < Phlex::HTML
   end
 
   def embedding_distance_method(metadata)
+    metadata ||= {}
     metadata.dig("hnsw:space") || "Cosine"
   end
 
   def format_metadata(metadata, count: 2)
+    metadata ||= {}
     index = 1
 
     metadata.each_pair do |key, value|

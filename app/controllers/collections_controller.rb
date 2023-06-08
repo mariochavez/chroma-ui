@@ -25,7 +25,7 @@ class CollectionsController < ApplicationController
   end
 
   def show
-    @collection, @embeddings_count, error = ChromaGateway.get_collection(unescape_name(params[:id]), include_count: false)
+    @collection, @embeddings_count, error = ChromaGateway.get_collection(unescape_name(params[:id]))
   end
 
   def edit
@@ -56,14 +56,6 @@ class CollectionsController < ApplicationController
   end
 
   private
-
-  def escape_name(name)
-    CGI.escape(name.tr(".", " "))
-  end
-
-  def unescape_name(name)
-    CGI.unescape(name)&.gsub(" ", ".")
-  end
 
   def create_failure_response(collection_form)
     response.status = :unprocessable_entity

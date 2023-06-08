@@ -35,4 +35,12 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :server, :version
+
+  def escape_name(name)
+    CGI.escape(name.tr(".", " "))
+  end
+
+  def unescape_name(name)
+    CGI.unescape(name)&.gsub(" ", ".")
+  end
 end

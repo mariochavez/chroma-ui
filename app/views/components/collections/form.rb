@@ -3,9 +3,6 @@
 module Collections
   class Form < ApplicationComponent
     include Phlex::Rails::Helpers::FormWith
-    include Phlex::Rails::Helpers::Label
-    include Phlex::Rails::Helpers::Select
-    include Phlex::Rails::Helpers::TextField
     include Phlex::Rails::Helpers::TurboFrameTag
     include Phlex::Rails::Helpers::TokenList
 

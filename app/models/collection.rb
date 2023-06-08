@@ -13,7 +13,6 @@ class Collection < ApplicationModel
   def initialize(*args)
     super
     self.distance_method ||= DISTANCE_METHODS.last
-    # @invalid_metadata = false
   end
 
   def metadata

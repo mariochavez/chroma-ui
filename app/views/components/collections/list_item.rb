@@ -5,7 +5,6 @@ module Collections
     include Phlex::Rails::Helpers::LinkTo
 
     def initialize(collection:)
-      puts collection.inspect
       @collection = collection
     end
 
@@ -26,7 +25,7 @@ module Collections
                   "inline-flex flex-shrink-0 items-center rounded-full bg-gray-50 px-1.5 py-0.5 text-xs font-medium text-skin-muted ring-1 ring-inset ring-gray-600/20"
               ) { embedding_distance_method(@collection.metadata) }
             end
-            p(class: "mt-1 text-sm text-skin-dimmed break-all") do
+            p(class: "mt-1 text-sm text-skin-dimmed break-all gap-x-2") do
               format_metadata(@collection.metadata)
             end
           end

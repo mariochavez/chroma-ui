@@ -76,6 +76,7 @@ en:
   confirmation:
     disconnect: Are you sure you want to disconnect?
     delete_collection: Are you sure you want to delete collection %{name}? This process is not reversible.
+    delete_embedding: Are you sure you want to delete embedding %{name}? This process is not reversible.
 
   collections:
     index:
@@ -97,6 +98,11 @@ en:
       actions:
         delete: Delete
         modify: Modify
+        execute: Execute
+      operations:
+        peek: Peek embeddings
+        query: Query embeddings
+        add: Add embeddings
     edit:
       title: Modify collection %{name}
       actions:
@@ -105,6 +111,63 @@ en:
       help:
         metadata: Enter metadata as a valid JSON object.
 
+  embeddings:
+    form:
+      description: Documents texts and embeddings are required, also a unique Id is required for each document. Metadata is optional.
+      required: required
+      placeholders:
+        documents: >
+          ["Document 1...", "Document 2...", ...]
+        ids: >
+          ["id-1", "id-2", ...]
+        metadatas: >
+          [{"source": "https://.....", "name": "The ..."}, {"source": "https://.....", "name": "The ..."}, ...]
+        embeddings: >
+          [[1.2, 3.4, -0.9], [2.2, 1.0, 1.8], ...]
+      help:
+        documents: A JSON array of documents
+        ids: A JSON array of ids
+        metadatas: A JSON array of metadata dictionaries
+        embeddings: A JSON array of embeddings
+
+  peek_embeddings:
+    form:
+      description: Peek into embeddings collection.
+
+    list:
+      description: Peek results %{size}
+
+  query_embeddings:
+    form:
+      description: Query embeddings collection.
+      placeholders:
+        ids: >
+          ["id-1", "id-2", ...]
+        metadata_filter: >
+          {
+            "metadata_field": "search_string"
+          }
+        document_filter: >
+          {
+            "$contains": "search_string"
+          }
+        embeddings: >
+          [[1.2, 3.4, -0.9], [2.2, 1.0, 1.8], ...]
+      help:
+        ids: A JSON array of ids
+        metadata_filter: Filter results by document's metadata
+        document_filter: Filter results by documents text
+        embeddings: A JSON array of embeddings
+
+    list:
+      description: Query results %{size}
+
+  embedding_results:
+    document: Document %{id}
+    embeddings: Embeddings
+    metadata: Metadata
+    distance: Distance %{distance}
+
   activemodel:
     attributes:
       collection:
@@ -112,12 +175,35 @@ en:
         distance_method: Distance method
         metadata: Metadata
         json_metadata: Metadata
+      embedding:
+        documents: Text documents
+        ids: Documents ids
+        metadatas: Documents metadata
+        embeddings: Embeddings
+      query:
+        limit: Limit results
+        additional: Additional data
+        ids: Documents ids
+        metadata_filter: Metadata filter
+        document_filter: Document filter
     errors:
       models:
         collection:
           attributes:
             name:
-              blank: "collection name is required"
-              invalid: "not a valid collection name format"
+              blank: collection name is required
+              invalid: not a valid collection name format
             json_metadata:
-              invalid: "not a valid JSON format"
+              invalid: not a valid JSON format
+        embedding:
+          attributes:
+            documents:
+              blank: not a valid or empty JSON documents array
+              invalid: not a valid JSON documents array
+            ids:
+              blank: not a valid or empty JSON ids array
+              invalid: not a valid JSON ids array
+            metadatas:
+              invalid: not a valid JSON metadata array
+            embeddings:
+              invalid: not a valid JSON embeddings array
