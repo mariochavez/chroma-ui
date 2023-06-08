@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class HomeController < ApplicationController
-  before_action :connected!
-
   layout "home"
 
   def index
@@ -12,7 +10,7 @@ class HomeController < ApplicationController
     host = params[:host]
     valid = connect_to_host(host)
 
-    return redirect_to collections_path if valid
+    return redirect_to(collections_path, notice: t("flash.home.create.notice", server_host: host)) if valid
 
     respond_to do |format|
       format.turbo_stream do
@@ -32,13 +30,13 @@ class HomeController < ApplicationController
     return false if host.blank?
 
     ChromaGateway.configure(host)
+    version, error = ChromaGateway.version
 
-    self.version = ChromaGateway.version
-    self.server = host
+    if error.blank?
+      self.version =  version
+      self.server = host
+    end
 
-    true
-  rescue
-    Chroma.connect_host = nil
-    false
+    error.blank?
   end
 end

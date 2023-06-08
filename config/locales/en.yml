@@ -168,6 +168,11 @@ en:
     metadata: Metadata
     distance: Distance %{distance}
 
+  flash:
+    home:
+      create:
+        notice: Welcome to %{server_host}
+
   activemodel:
     attributes:
       collection:

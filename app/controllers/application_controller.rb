@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   private
 
   def connected!
-    redirect_to root_path if !connected? && controller_name != "home"
+    disconnect! if !connected? && controller_name != "home"
   end
 
   def disconnect!
@@ -15,7 +15,13 @@ class ApplicationController < ActionController::Base
   end
 
   def connected?
-    server.present?
+    if server.present?
+      _, error = ChromaGateway.heartbeat
+
+      return error.blank?
+    end
+
+    false
   end
 
   def server=(value)

@@ -4,7 +4,7 @@ class CollectionsController < ApplicationController
   before_action :connected!
 
   def index
-    @collections, error = ChromaGateway.collections
+    @collections, _ = ChromaGateway.collections
   end
 
   def new

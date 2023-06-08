@@ -12,6 +12,8 @@
   </head>
 
   <body class="h-full" data-controller="modal" data-modal-backdrop-outlet=".modal-backdrop">
+    <%= render Application::Notification.new(flash) %>
+
     <% configuration = {
       current_controller: controller_name,
       server: server,

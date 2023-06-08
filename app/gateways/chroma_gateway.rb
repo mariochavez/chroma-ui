@@ -9,8 +9,20 @@ class ChromaGateway
     self
   end
 
+  def self.heartbeat
+    heartbeat = Chroma::Resources::Database.heartbeat
+
+    [heartbeat, nil]
+  rescue => exception
+    [nil, exception]
+  end
+
   def self.version
-    Chroma::Resources::Database.version
+    version = Chroma::Resources::Database.version
+
+    [version, nil]
+  rescue => exception
+    [nil, exception]
   end
 
   def self.collections

@@ -7,7 +7,7 @@ class Collection < ApplicationModel
 
   validates :name, presence: true, length: {maximum: 63, minimum: 3}
   validates :distance_method, presence: true, inclusion: {in: DISTANCE_METHODS}
-  validate :valid_name_format
+  # validate :valid_name_format
   validate :valid_json_metadata
 
   def initialize(*args)
